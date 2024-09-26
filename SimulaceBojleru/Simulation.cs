@@ -140,6 +140,7 @@ public class Simulation : IDisposable
             ((valve.HotFlow * HEAT_CAPACITY_OF_WATER * Bathroom.Bojler.Temp) +
              (valve.ColdFlow * HEAT_CAPACITY_OF_WATER * Bathroom.ColdWaterTemp)) / ((valve.HotFlow *
                 HEAT_CAPACITY_OF_WATER) + (valve.ColdFlow * HEAT_CAPACITY_OF_WATER));
+        valve.Temp = double.IsNaN(valve.Temp)? 0: valve.Temp;
     }
 
     public void UpdateSpeed(ushort speed)
